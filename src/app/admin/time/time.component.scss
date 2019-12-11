@@ -1,0 +1,97 @@
+td{
+    border: 1px solid silver;
+    padding-left: 7px;
+}
+
+.time{
+    width: 100%;
+}
+.time-label{
+    margin: 0;
+}
+.time-head{
+    width: 48%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.time-wrapper {
+    position: relative;
+    padding-top: 80px;
+}
+
+.time-line{
+    font-weight: 700;
+}
+.time-strong{
+    display: inline-block;
+    width: 40%;
+}
+.time-big{
+    font-weight: 800;
+}
+.time-rule{
+    width: 50%;
+    border: 1px solid black;
+
+}
+.time-column-name {
+    font-weight: 700;
+}
+.time-impotent{
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.time-example-form{
+    cursor: pointer;
+    width: max-content;
+    background: #fff;
+    z-index: 10;
+    display: none;
+    padding: 10px;
+    border: 1px solid rgb(92, 85, 85);
+    border-radius: 4px;
+}
+.time-example:hover{
+    color: darkorchid;
+}
+
+.time-input-string {
+
+    padding: 5px;
+    width: -webkit-fill-available;
+    border: 1px solid rgb(99, 99, 99);
+    background-color: rgb(230, 230, 230);
+    margin-bottom: 4px;
+    border-radius: 4px;
+
+}
+.time-form-button{
+    color: rgb(255, 251, 251) !important;
+}
+
+.time-speech-input{
+    visibility: hidden;
+    margin-left: -7px;
+
+    padding: 0;
+    &:checked ~ span{
+        color: rgb(190, 9, 9);
+    }
+    &:checked ~ .time-example-form{
+        display: block;
+        position: absolute;
+        box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+    }
+}
+.time-speech-wrapper{
+    position: relative;
+}
+
+.time-footer{
+    color: black;
+    font-weight: 500;
+}

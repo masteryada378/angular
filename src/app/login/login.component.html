@@ -1,0 +1,88 @@
+<p class="tip">Click on button in image container</p>
+<div class="cont" [ngClass]="{'s--signup': !signIn}" >
+  <form novalidate class="form sign-in" [formGroup]='loginForm' (ngSubmit)='login()'>
+    <h2>Welcome back,</h2>
+    <label>
+      <span>Email</span>
+      <input type="email" formControlName="login" />
+    </label>
+    <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('login').hasError('required') && loginForm.get('login').touched">
+      Empty line
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('login').hasError('pattern') && loginForm.get('login').touched">
+      Wrong email
+    </div>
+    <label>
+      <span>Password</span>
+      <input type="password" formControlName="password" />
+    </label>
+    <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+      Empty line
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+      Symbols don't suffice
+    </div>
+    <p class="forgot-pass">Forgot password?</p>
+    <button type="submit"  class="submit">Sign In</button>
+    <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+  </form>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>New here?</h2>
+        <p>Sign up and discover great amount of new opportunities!</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>One of us?</h2>
+        <p>If you already has an account, just sign in. We've missed you!</p>
+      </div>
+      <div class="img__btn" (click)='changeForm()'>
+        <span class="m--up">Sign Up</span>
+        <span class="m--in">Sign In</span>
+      </div>
+    </div>
+    <form class="form sign-up" [formGroup]='signUpForm' (ngSubmit)='signUp()'>
+      <h2>Time to feel like home,</h2>
+      <label>
+        <span>Name</span>
+        <input type="text" formControlName="name"/>
+      </label>
+      <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('name').hasError('required') && signUpForm.get('name').touched">
+        Empty line
+      </div>
+      <label>
+        <span>Email</span>
+        <input type="email" formControlName="login"/>
+      </label>
+      <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('login').hasError('required') && signUpForm.get('login').touched">
+        Empty line
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('login').hasError('pattern') && signUpForm.get('login').touched">
+        Wrong login
+      </div>
+      <label>
+        <span>Password</span>
+        <input type="password" formControlName="password"/>
+      </label>
+      <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('password').hasError('required') && signUpForm.get('password').touched">
+        Empty line
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('password').hasError('minlength') && signUpForm.get('password').touched">
+        Symbols don't suffice
+      </div>
+      <button type="submit" class="submit">Sign Up</button>
+      <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+    </form>
+  </div>
+</div>
+
+<a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
+  <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
+</a>
+<a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
+  <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
+</a>
+
+<div class="my-container">
+  <ngx-loading [show]="loading" [template]="customLoadingTemplate"></ngx-loading>
+</div>
