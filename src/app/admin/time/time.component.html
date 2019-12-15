@@ -2,7 +2,7 @@
   <h2 class="time-headline">
     Table times
   </h2>
-  <table class="time" [formGroup] = 'timeForm'>
+  <table class="time" *ngIf='dataTime'>
     <tr class="time-line">
       <td>
         &#9731;
@@ -20,67 +20,32 @@
         Perfect Continuous
       </td>
     </tr>
-    <tr class="time-item" formGroupName="future">
+    <tr class="time-item">
       <td class="time-column-name">
         Future
       </td>
-      <td class="time-item" formArrayName="indefinite">
+      <td class="time-item">
         <div class="time-big">WILL</div>
-        <div *ngFor="let item of timeForm.controls.future.controls.indefinite.value; let i = index">
+        <div *ngFor="let item of dataTime.future.indefinite; let i = index">
           <div class='time-speech-wrapper'>
             <label class='time-label'>
               <input class="time-speech-input" type="checkbox">
-              <span>{{item}} @@</span>
-              <input type="text" value="item">
+              <span>{{item.word}}</span>
+              <form class="time-example-form">
+                <div *ngFor="let word of item.words; let y = index">
+                  {{word}}
+                  <input type="text" class='time-input-string' name="text" (change)='chengeInput($event, item.words, y)' [value]="word">
+                </div>
+                <a (click)='addSpeech()' class="btn btn-sm btn-info mr-4 time-form-button">Add</a>
+                <a (click)='changeSpeech()' class="btn btn-sm btn-default float-right time-form-button">Change</a>
+              </form>
             </label>
           </div>
         </div>
-
-
-        <!-- <div class='time-speech-wrapper'>
-          <label class='time-label'>
-            <input class="time-speech-input" type="checkbox">
-            <span>On sunday</span>
-          <form class="time-example-form">
-            <input type="text" class='time-input-string' name="text" value="Tomorrow we will go to the movies">
-            <input type="text" class='time-input-string' name="text" value="Tomorrow we will go to the park">
-            <input type="text" class='time-input-string' name="text" value="I hope we'll get our share by tomorrow">
-            <a (click)='addSpeech()' class="btn btn-sm btn-info mr-4 time-form-button">Add</a>
-            <a (click)='changeSpeech()' class="btn btn-sm btn-default float-right time-form-button">Change</a>
-          </form>
-          </label>
-        </div>
-        <div class='time-speech-wrapper'>
-          <label class='time-label'>
-            <input class="time-speech-input" type="checkbox">
-            <span>next sunday</span>
-          <form class="time-example-form">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <a (click)='addSpeech()' class="btn btn-sm btn-info mr-4 time-form-button">Add</a>
-            <a (click)='changeSpeech()' class="btn btn-sm btn-default float-right time-form-button">Change</a>
-          </form>
-          </label>
-        </div>
-        <div class='time-speech-wrapper'>
-          <label class='time-label'>
-            <input class="time-speech-input" type="checkbox">
-            <span>in 1998</span>
-          <form class="time-example-form">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <input type="text" class='time-input-string' name="text" value="Any string expression that you want to modify">
-            <a (click)='addSpeech()' class="btn btn-sm btn-info mr-4 time-form-button">Add</a>
-            <a (click)='changeSpeech()' class="btn btn-sm btn-default float-right time-form-button">Change</a>
-          </form>
-          </label>
-        </div> -->
         <div class="time-footer"> if, when, till.....</div>
       </td>
 
-
-      <td class="time-item" formArrayName="continuous">
+      <td class="time-item">
         <div>WILL</div>
         <div class='time-speech-wrapper'>
           <label class='time-label'>
@@ -123,7 +88,7 @@
         </div>
         <div class="time-footer">If.....</div>
       </td>
-      <td class="time-item" formArrayName="perfect">
+      <td class="time-item">
         <div>WILL</div>
         <div>
           <div class="time-example time-impotent">*by 7</div>

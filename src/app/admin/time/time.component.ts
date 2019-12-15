@@ -20,22 +20,18 @@ export class TimeComponent implements OnInit {
 
   ngOnInit() {
     this.dbs.getTimeTable().subscribe((response: DocumentSnapshot<any>) => {
-   //   console.log('First', response.data());
+      console.log('First', response.data());
       this.dataTime = response.data();
     });
-    this.formBuilder();
+    // this.formBuilder();
   }
-
-  public formBuilder(): void {
-    this.timeForm = this.fb.group({
-      future: this.fb.group({
-        indefinite: [['tomorrow']],
-        continuous: [['when']],
-        perfect: [['by7']]
-      })
-    });
-
-    console.log(this.timeForm);
+  public addSpeech(){
+    console.log(this.dataTime);
   }
-
+  public chengeInput(event,words, y){
+    words[y]=event.target.value;
+    console.log(event,words, y);
+  }
 }
+
+// [(ngModel)]="word" *ngFor="let word of item.words"
