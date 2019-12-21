@@ -20,17 +20,15 @@ export class TimeComponent implements OnInit {
 
   ngOnInit() {
     this.dbs.getTimeTable().subscribe((response: DocumentSnapshot<any>) => {
-      console.log('First', response.data());
       this.dataTime = response.data();
     });
-    // this.formBuilder();
-  }
-  public addSpeech(){
-    console.log(this.dataTime);
   }
   public chengeInput(event,words, y){
     words[y]=event.target.value;
-    console.log(event,words, y);
+    this.dbs.setTimeTable(this.dataTime)
+  }
+  public addSpeech(words){
+    words.push('');
   }
 }
 
