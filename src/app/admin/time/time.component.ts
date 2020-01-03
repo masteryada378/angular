@@ -30,6 +30,9 @@ export class TimeComponent implements OnInit {
   public addSpeech(words){
     words.push('');
   }
+  public killSpeech(string){
+    console.log(string);
+  }
 }
 
 // [(ngModel)]="word" *ngFor="let word of item.words"
