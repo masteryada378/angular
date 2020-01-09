@@ -12,27 +12,28 @@ import { LoginService } from 'src/app/shared/login.service';
 export class TimeComponent implements OnInit {
 
   public  timeForm: FormGroup;
-  public dataTime: any;
-
+  
   constructor(private dbs: DataBaseService,
               public fb: FormBuilder,
               public loginService: LoginService) { }
 
   ngOnInit() {
-    this.dbs.getTimeTable().subscribe((response: DocumentSnapshot<any>) => {
-      this.dataTime = response.data();
-    });
+//TODO подписаться на дата тайм и сохранить в переменную    
   }
-  public chengeInput(event,words, y){
-    words[y]=event.target.value;
-    this.dbs.setTimeTable(this.dataTime)
+
+// TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
+
+// доделать модалку !!! 
+
+
+// TODO перенести в модал  
+  public chengeInput(event, words, y) {
+    this.dbs.chengeInput(event, words, y);
   }
-  public addSpeech(words){
-    words.push('');
+  public addSpeech(words) {
   }
-  public killSpeech(string){
-    console.log(string);
+  public killSpeech(string) {
+  }
+  public onChanged(data: any) {
   }
 }
-
-// [(ngModel)]="word" *ngFor="let word of item.words"

@@ -1,0 +1,19 @@
+<form class="time-example-form">
+  <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
+  <div *ngFor="let word of item.words; let y = index">
+    <label class="time-example-label">
+      <input type="text" class='time-input-string' name="text"
+        (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
+        [value]="word">
+      <button class="icon-btn add-btn">
+        <div class="btn-txt">Kill</div>
+      </button>
+    </label>
+  </div>
+  <a (click)='addSpeech(item.words)'>
+    <button class="icon-btn add-btn">
+      <div class="add-icon"></div>
+      <div class="btn-txt">Add</div>
+    </button>
+  </a>
+</form>

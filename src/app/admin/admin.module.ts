@@ -11,6 +11,8 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimeComponent } from './time/time.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ModalComponent } from './modal/modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     IconsComponent,
     UserProfileComponent,
     DashboardComponent,
-    TimeComponent
+    TimeComponent,
+    ModalComponent
 
   ],
   imports: [
@@ -31,6 +34,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+    ModalModule.forRoot(),
   ]
 })
 export class AdminModule { }
