@@ -1,15 +1,9 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  AngularFirestore,
-  DocumentSnapshot
-} from '@angular/fire/firestore';
+import {Injectable} from '@angular/core';
+import {AngularFirestore, DocumentSnapshot} from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
+
 export class DataBaseService {
 
   public dataTime = new BehaviorSubject<any>(null);
@@ -20,7 +14,6 @@ export class DataBaseService {
     });
   }
   
-
   public getTimeTable() {
     return this.afs.collection('tables').doc('times').get();
   }
@@ -33,12 +26,15 @@ export class DataBaseService {
     words[y] = event.target.value;
     this.setTimeTable(this.dataTime)
   }
+
   public addSpeech(words) {
     words.push('');
   }
+
   public killSpeech(string) {
     console.log(string);
   }
+
   public onChanged(data: any) {
     console.log(data);
   }

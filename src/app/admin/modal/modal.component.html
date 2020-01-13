@@ -1,4 +1,19 @@
-<form class="time-example-form">
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ul *ngIf="list.length">
+    <li *ngFor="let item of list">{{item}}</li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+</div>
+
+<!-- <form class="time-example-form">
   <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
   <div *ngFor="let word of item.words; let y = index">
     <label class="time-example-label">
@@ -16,4 +31,4 @@
       <div class="btn-txt">Add</div>
     </button>
   </a>
-</form>
+</form> -->

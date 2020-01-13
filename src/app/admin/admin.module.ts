@@ -35,6 +35,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ReactiveFormsModule,
     FormsModule,
     ModalModule.forRoot(),
+  ],
+  entryComponents:[
+    ModalComponent
   ]
 })
 export class AdminModule { }

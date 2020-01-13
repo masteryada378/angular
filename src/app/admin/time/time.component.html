@@ -2,6 +2,10 @@
   <h2 class="time-headline">
     Table times
   </h2>
+  <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Opne me</button>
+  <p>{{dataTime}}1</p>
+  <p>{{dataTable}}2</p>
+  <p>{{dataTimeResponse}}3</p>
   <table class="time" *ngIf='dataTime'>
     <tr class="time-line">
       <td>
@@ -27,8 +31,8 @@
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.indefinite; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
               <span>{{item.word}}</span>
               <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>

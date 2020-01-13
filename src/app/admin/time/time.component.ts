@@ -3,6 +3,8 @@ import { DataBaseService } from 'src/app/shared/data-base.service';
 import { DocumentSnapshot } from '@angular/fire/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/shared/login.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-time',
@@ -10,22 +12,46 @@ import { LoginService } from 'src/app/shared/login.service';
   styleUrls: ['./time.component.scss']
 })
 export class TimeComponent implements OnInit {
-
-  public  timeForm: FormGroup;
+  public bsModalRef: BsModalRef;
+  public timeForm: FormGroup;
+  public dataTableResponse: any;
+  public dataTable: any;
   
   constructor(private dbs: DataBaseService,
               public fb: FormBuilder,
-              public loginService: LoginService) { }
+              public loginService: LoginService,
+              private modalService: BsModalService) { }
 
   ngOnInit() {
-//TODO подписаться на дата тайм и сохранить в переменную    
+//TODO подписаться на дата тайм и сохранить в переменную
+  this.dataTable = this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>)=>{
+    console.log('TUTAs',response);
+    this.dataTableResponse = response;
+  })
+  console.log("osnova",this.dataTable);
+  console.log("32",this.dataTableResponse);
   }
 
-// TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
+  public openModalWithComponent() {
+    const initialState = {
+      list: [
+        'Open a modal with component',
+        'Pass your data',
+        'Do something else',
+        '...'
+      ],
+      title: 'Modal with component'
+    };
+    this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
+public openModal(){
+    
+}
 
 // доделать модалку !!! 
-
-
 // TODO перенести в модал  
   public chengeInput(event, words, y) {
     this.dbs.chengeInput(event, words, y);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-modal',
@@ -6,10 +7,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-
-  constructor() { }
+  
+  title: string;
+  closeBtnName: string;1
+  list: any[] = [];
+  
+  constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
+    this.list.push('PROFIT!!!');
   }
 
   @Output() onChanged = new EventEmitter<boolean>();
