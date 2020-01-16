@@ -3,9 +3,6 @@
     Table times
   </h2>
   <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Opne me</button>
-  <p>{{dataTime}}1</p>
-  <p>{{dataTable}}2</p>
-  <p>{{dataTimeResponse}}3</p>
   <table class="time" *ngIf='dataTime'>
     <tr class="time-line">
       <td>
@@ -63,44 +60,8 @@
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.continuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
-              <form class="time-example-form">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-
-            </label>
-
-          </div>
-        </div>
-        <div class="time-footer"> if, when, till.....</div>
-      </td>
-      <td class="time-item">
-        <div class="time-big">WILLdsfsdfsd</div>
-        <!-- TODO -->
-        <div *ngFor="let item of dataTime.future.prefect; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
               <span>{{item.word}}</span>
               <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
@@ -123,24 +84,22 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
         <div class="time-footer"> if, when, till.....</div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
-        <div *ngFor="let item of dataTime.future.perfectContinuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+        <!-- TODO -->
+        <div *ngFor="let item of dataTime.future.prefect; let i = index">
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -158,9 +117,39 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
+          </div>
+        </div>
+        <div class="time-footer"> if, when, till.....</div>
+      </td>
+      <td class="time-item">
+        <div class="time-big">WILL</div>
+        <div *ngFor="let item of dataTime.future.perfectContinuous; let i = index">
+          <div class="time-speech-wrapper">
+            <label class="time-label">
+              <input class="time-speech-input" name="time-speech-input" type="checkbox">
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
+              <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
+                <div *ngFor="let word of item.words; let y = index">
+                  <label class="time-example-label">
+                    <input type="text" class='time-input-string' name="text"
+                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
+                      [value]="word">
+                    <button class="icon-btn add-btn">
+                      <div class="btn-txt">Kill</div>
+                    </button>
+                  </label>
+                </div>
+                <a (click)='addSpeech(item.words)'>
+                  <button class="icon-btn add-btn">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Add</div>
+                  </button>
+                </a>
+              </form>
+            </label>
           </div>
         </div>
         <div class="time-footer"> if, when, till.....</div>
@@ -172,14 +161,13 @@
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.indefinite; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -197,22 +185,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.continuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -230,22 +215,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfect; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -263,22 +245,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfectContinuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -296,9 +275,7 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
@@ -309,14 +286,13 @@
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.indefinite; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
-              <input class="time-speech-input" name="time-speech-input" type="radio">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
+              <input class="time-speech-input" name="time-speech-input" type="checkbox">
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -334,22 +310,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.continuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
-              <input class="time-speech-input" name="time-speech-input" type="radio">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
+              <input class="time-speech-input" name="time-speech-input" type="checkbox">
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -367,22 +340,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfect; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
-              <input class="time-speech-input" name="time-speech-input" type="radio">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
+              <input class="time-speech-input" name="time-speech-input" type="checkbox">
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -400,22 +370,19 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfectContinuous; let i = index">
-          <div class='time-speech-wrapper'>
-            <label class='time-label'>
-              <input class="time-speech-input" name="time-speech-input" type="radio">
-              <input class="time-move-input" type="text" [disabled]='!item.disabled' [(ngModel)]="item.word">
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"
-                (click)='item.disabled = !item.disabled'>
-              </div>
+          <div class="time-speech-wrapper">
+            <label class="time-label">
+              <input class="time-speech-input" name="time-speech-input" type="checkbox">
+              <span>{{item.word}}</span>
+              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
               <form class="time-example-form">
+                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">
                   <label class="time-example-label">
                     <input type="text" class='time-input-string' name="text"
@@ -433,9 +400,7 @@
                   </button>
                 </a>
               </form>
-
             </label>
-
           </div>
         </div>
       </td>

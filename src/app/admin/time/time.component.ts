@@ -15,7 +15,7 @@ export class TimeComponent implements OnInit {
   public bsModalRef: BsModalRef;
   public timeForm: FormGroup;
   public dataTableResponse: any;
-  public dataTable: any;
+  public dataTime: any;
   
   constructor(private dbs: DataBaseService,
               public fb: FormBuilder,
@@ -24,32 +24,21 @@ export class TimeComponent implements OnInit {
 
   ngOnInit() {
 //TODO подписаться на дата тайм и сохранить в переменную
-  this.dataTable = this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>)=>{
-    console.log('TUTAs',response);
-    this.dataTableResponse = response;
-  })
-  console.log("osnova",this.dataTable);
-  console.log("32",this.dataTableResponse);
+    this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>) => {
+      this.dataTime = response;
+    });
   }
 
+  // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
   public openModalWithComponent() {
     const initialState = {
-      list: [
-        'Open a modal with component',
-        'Pass your data',
-        'Do something else',
-        '...'
-      ],
+      list: ['...'],
       title: 'Modal with component'
     };
     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
-  // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
-public openModal(){
-    
-}
 
 // доделать модалку !!! 
 // TODO перенести в модал  
@@ -63,3 +52,12 @@ public openModal(){
   public onChanged(data: any) {
   }
 }
+
+
+    // this.dataTable = this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>)=>{
+    //   console.log('TUTAs',response);
+    //   if(response){
+    //     this.dataTableResponse = response;
+    //   }
+    // })
+    // console.log("32",this.dataTableResponse);
