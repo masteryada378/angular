@@ -5,9 +5,29 @@
   </button>
 </div>
 <div class="modal-body">
-  <ul *ngIf="list.length">
+  <!-- <ul *ngIf="list.length">
     <li *ngFor="let item of list">{{item}}</li>
-  </ul>
+  </ul> -->
+  <form class="time-example-form1">
+    <div *ngFor="let item of data.future.indefinite; let i = index">
+      <div *ngFor="let word of item.words; let y = index">
+        <label class="time-example-label">
+          <input type="text" class='time-input-string' name="text"
+            (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
+            [value]="word">
+          <button class="icon-btn add-btn">
+            <div class="btn-txt">Kill</div>
+          </button>
+        </label>
+      </div>
+      <a (click)='addSpeech(item.words)'>
+        <button class="icon-btn add-btn">
+          <div class="add-icon"></div>
+          <div class="btn-txt">Add</div>
+        </button>
+      </a>
+    </div>
+  </form>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>

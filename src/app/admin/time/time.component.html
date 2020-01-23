@@ -2,7 +2,6 @@
   <h2 class="time-headline">
     Table times
   </h2>
-  <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Opne me</button>
   <table class="time" *ngIf='dataTime'>
     <tr class="time-line">
       <td>
@@ -32,7 +31,8 @@
             <label class="time-label">
               <input class="time-speech-input" name="time-speech-input" type="checkbox">
               <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
+              <!-- <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div> -->
+              <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Opne me</button>
               <form class="time-example-form">
                 <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
                 <div *ngFor="let word of item.words; let y = index">

@@ -26,6 +26,7 @@ export class TimeComponent implements OnInit {
 //TODO подписаться на дата тайм и сохранить в переменную
     this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>) => {
       this.dataTime = response;
+      console.log(this.dataTime);
     });
   }
 
@@ -33,13 +34,12 @@ export class TimeComponent implements OnInit {
   public openModalWithComponent() {
     const initialState = {
       list: ['...'],
+      data: this.dataTime,
       title: 'Modal with component'
     };
     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
-
-
 // доделать модалку !!! 
 // TODO перенести в модал  
   public chengeInput(event, words, y) {

@@ -9,8 +9,9 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class ModalComponent implements OnInit {
   
   title: string;
-  closeBtnName: string;1
+  closeBtnName: string;
   list: any[] = [];
+  data: any;
   
   constructor(public bsModalRef: BsModalRef) { }
 
@@ -20,8 +21,4 @@ export class ModalComponent implements OnInit {
 
   @Output() onChanged = new EventEmitter<boolean>();
   
-  modalWin(data:any) {
-    console.log(data);
-  }
-
 }
