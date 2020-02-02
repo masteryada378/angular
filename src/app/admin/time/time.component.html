@@ -3,405 +3,100 @@
     Table times
   </h2>
   <table class="time" *ngIf='dataTime'>
-    <tr class="time-line">
+    <tr class="time-title">
       <td>
         &#9731;
       </td>
-      <td>
+      <td class="time-title">
         Indefinite
       </td>
-      <td>
+      <td class="time-title">
         Continuous
       </td>
-      <td>
+      <td class="time-title">
         Pefrect
       </td>
-      <td>
+      <td class="time-title">
         Perfect Continuous
       </td>
     </tr>
-    <tr class="time-item">
-      <td class="time-column-name">
+    <tr>
+      <td class="time-title">
         Future
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.indefinite; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <!-- <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div> -->
-              <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Opne me</button>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
-        <div class="time-footer"> if, when, till.....</div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.continuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
-        <div class="time-footer"> if, when, till.....</div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <!-- TODO -->
         <div *ngFor="let item of dataTime.future.prefect; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
-        <div class="time-footer"> if, when, till.....</div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.perfectContinuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
-        <div class="time-footer"> if, when, till.....</div>
       </td>
     </tr>
     <tr>
-      <td class="time-column-name">
+      <td class="time-title">
         Present
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.indefinite; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.continuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfect; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfectContinuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
     </tr>
     <tr>
-      <td class="time-column-name">
+      <td class="time-title">
         Past
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.indefinite; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.continuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfect; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfectContinuous; let i = index">
-          <div class="time-speech-wrapper">
-            <label class="time-label">
-              <input class="time-speech-input" name="time-speech-input" type="checkbox">
-              <span>{{item.word}}</span>
-              <div data-back="Hide" data-front="Show" class="btn-flip spanChange"></div>
-              <form class="time-example-form">
-                <input class="time-input-string" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="item.word">
-                <div *ngFor="let word of item.words; let y = index">
-                  <label class="time-example-label">
-                    <input type="text" class='time-input-string' name="text"
-                      (change)='chengeInput($event, item.words, y)' (keyup.enter)='chengeInput($event, item.words, y)'
-                      [value]="word">
-                    <button class="icon-btn add-btn">
-                      <div class="btn-txt">Kill</div>
-                    </button>
-                  </label>
-                </div>
-                <a (click)='addSpeech(item.words)'>
-                  <button class="icon-btn add-btn">
-                    <div class="add-icon"></div>
-                    <div class="btn-txt">Add</div>
-                  </button>
-                </a>
-              </form>
-            </label>
-          </div>
+          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
         </div>
       </td>
     </tr>

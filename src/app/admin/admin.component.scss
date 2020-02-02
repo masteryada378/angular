@@ -1,139 +1,10 @@
 .main-content{
-    margin-left: 250px;
+  @media (min-width: 768px) {
+    margin-left: 250px;    
+  }
     position: relative;
 }
 /deep/{
-    td{
-        border: 1px solid silver;
-        padding-left: 7px;
-    }
-    
-    .time{
-        width: 100%;
-    }
-    .time-label{
-        margin: 0;
-        display: flex;
-        width: auto;
-        color: hue($color: #77632c);
-    }
-    .time-head{
-        width: 48%;
-        border: 1px solid black;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .time-wrapper {
-        position: relative;
-        padding-top: 80px;
-    }
-    
-    .time-line{
-        font-weight: 700;
-    }
-    .time-strong{
-        display: inline-block;
-        width: 40%;
-    }
-    .time-big{
-        font-weight: 800;
-    }
-    .time-rule{
-        width: 50%;
-        border: 1px solid black;
-    
-    }
-    .time-column-name {
-        font-weight: 700;
-    }
-    .time-impotent{
-        display: inline-block;
-        border: 1px solid black;
-        border-radius: 50%;
-    }
-    .time-example-form{
-        cursor: pointer;
-        min-width: 400px;
-        width: max-content;
-        background: #fff;
-        z-index: 10;
-        display: none;
-        padding: 10px;
-        border: 1px solid rgb(92, 85, 85);
-        border-radius: 4px;
-    }
-    .time-example:hover{
-        color: darkorchid;
-    }
-    .time-example-label{
-        display: flex;
-        width: auto;
-        width: calc(100% + 58px);
-        .icon-btn {
-            margin-left: 10px;
-            box-shadow: 5px 5px 19px 5px rgba(0,0,0,0.76);
-        }
-    }
-    
-    .time-input-string {
-    
-        padding: 5px;
-        width: -webkit-fill-available;
-        border: 1px solid rgb(99, 99, 99);
-        background-color: rgb(160, 20, 20);
-        margin-bottom: 4px;
-        border-radius: 4px;
-        // background: initial;
-        // border: 0;
-    
-    }
-    .time-form-button{
-        color: rgb(255, 251, 251) !important;
-    }
-    .time-move-input{
-        background: initial;
-        border: 0;
-        color: #853636;
-        &:disabled{
-          color: green;
-        }
-    }
-    .time-speech-input{
-    //.time-move-input{
-     //   visibility: hidden;
-        margin-left: -7px;
-    
-        padding: 0;
-        &:checked ~ .btn-flip{
-            &:after{
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
-            }
-            
-            &:before{
-                opacity: 0;
-                transform: translateY(50%) rotateX(90deg);
-            }
-    
-        }
-        &:checked ~ .time-example-form{
-            display: block;
-            position: absolute;
-            top: 2rem;
-            box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
-        }
-    }
-    .time-speech-wrapper{
-        position: relative;
-    }
-    
-    .time-footer{
-        color: black;
-        font-weight: 500;
-    }
-    
     //--- button
     .main-hr {
         width: 30%;
@@ -284,3 +155,136 @@
         }
     }
 }
+
+// ----------------------------------------
+
+// td {
+//   border: 1px solid silver;
+//   padding-left: 7px;
+// }
+
+// .time{
+//   width: 100%;
+// }
+// .time-label{
+//   margin: 0;
+//   display: flex;
+//   width: auto;
+//   color: hue($color: #77632c);
+// }
+// .time-head{
+//   width: 48%;
+//   border: 1px solid black;
+//   display: flex;
+//   justify-content: space-around;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+// }
+// .time-wrapper {
+//   position: relative;
+//   padding-top: 80px;
+// }
+
+// .time-line{
+//   font-weight: 700;
+// }
+// .time-strong{
+//   display: inline-block;
+//   width: 40%;
+// }
+// .time-big{
+//   font-weight: 800;
+// }
+// .time-rule{
+//   width: 50%;
+//   border: 1px solid black;
+
+// }
+// .time-column-name {
+//   font-weight: 700;
+// }
+// .time-impotent{
+//   display: inline-block;
+//   border: 1px solid black;
+//   border-radius: 50%;
+// }
+// .time-example-form{
+//   cursor: pointer;
+//   min-width: 400px;
+//   width: max-content;
+//   background: #fff;
+//   z-index: 10;
+//   display: none;
+//   padding: 10px;
+//   border: 1px solid rgb(92, 85, 85);
+//   border-radius: 4px;
+// }
+// .time-example:hover{
+//   color: darkorchid;
+// }
+// .time-example-label{
+//   display: flex;
+//   width: auto;
+//   width: calc(100% + 58px);
+//   .icon-btn {
+//       margin-left: 10px;
+//       box-shadow: 5px 5px 19px 5px rgba(0,0,0,0.76);
+//   }
+// }
+
+// .time-input-string {
+
+//   padding: 5px;
+//   width: -webkit-fill-available;
+//   border: 1px solid rgb(99, 99, 99);
+//   background-color: rgb(160, 20, 20);
+//   margin-bottom: 4px;
+//   border-radius: 4px;
+//   // background: initial;
+//   // border: 0;
+
+// }
+// .time-form-button{
+//   color: rgb(255, 251, 251) !important;
+// }
+// .time-move-input{
+//   background: initial;
+//   border: 0;
+//   color: #853636;
+//   &:disabled{
+//     color: green;
+//   }
+// }
+// .time-speech-input{
+// //.time-move-input{
+// //   visibility: hidden;
+//   margin-left: -7px;
+
+//   padding: 0;
+//   &:checked ~ .btn-flip{
+//       &:after{
+//           opacity: 1;
+//           transform: translateY(0) rotateX(0);
+//       }
+      
+//       &:before{
+//           opacity: 0;
+//           transform: translateY(50%) rotateX(90deg);
+//       }
+
+//   }
+//   &:checked ~ .time-example-form{
+//       display: block;
+//       position: absolute;
+//       top: 2rem;
+//       box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+//   }
+// }
+// .time-speech-wrapper{
+//   position: relative;
+// }
+
+// .time-footer{
+//   color: black;
+//   font-weight: 500;
+// }

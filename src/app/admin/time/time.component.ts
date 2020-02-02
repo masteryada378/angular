@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/shared/login.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ModalComponent } from '../modal/modal.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-time',
@@ -16,6 +17,8 @@ export class TimeComponent implements OnInit {
   public timeForm: FormGroup;
   public dataTableResponse: any;
   public dataTime: any;
+
+ // public dataBehavior: new BehaviorSubject<any>(null);
   
   constructor(private dbs: DataBaseService,
               public fb: FormBuilder,
@@ -24,7 +27,9 @@ export class TimeComponent implements OnInit {
 
   ngOnInit() {
 //TODO подписаться на дата тайм и сохранить в переменную
-    this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>) => {
+  console.log();  
+
+  this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>) => {
       this.dataTime = response;
       console.log(this.dataTime);
     });
@@ -33,9 +38,8 @@ export class TimeComponent implements OnInit {
   // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
   public openModalWithComponent() {
     const initialState = {
-      list: ['...'],
-      data: this.dataTime,
-      title: 'Modal with component'
+      title: 'A few examples',
+      data: this.dataTime
     };
     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';

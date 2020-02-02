@@ -10,13 +10,11 @@ export class ModalComponent implements OnInit {
   
   title: string;
   closeBtnName: string;
-  list: any[] = [];
   data: any;
   
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
-    this.list.push('PROFIT!!!');
   }
 
   @Output() onChanged = new EventEmitter<boolean>();
