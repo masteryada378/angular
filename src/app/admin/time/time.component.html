@@ -27,26 +27,30 @@
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.indefinite; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.continuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <!-- TODO -->
         <div *ngFor="let item of dataTime.future.prefect; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
         <div *ngFor="let item of dataTime.future.perfectContinuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
     </tr>
@@ -56,22 +60,26 @@
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.indefinite; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.continuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfect; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.present.perfectContinuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
     </tr>
@@ -81,22 +89,26 @@
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.indefinite; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.continuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfect; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
       <td class="time-item">
         <div *ngFor="let item of dataTime.past.perfectContinuous; let i = index">
-          <button type="button" class="time-button" (click)="openModalWithComponent()">{{item.word}}</button>
+          <button type="button" class="time-button" 
+          (click)="openModalWithComponent(item)">{{item.word}}</button>
         </div>
       </td>
     </tr>

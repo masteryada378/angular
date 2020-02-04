@@ -22,9 +22,11 @@ export class DataBaseService {
     return this.afs.collection('tables').doc('times').update(data);
   }
 
-  public chengeInput(event, words, y) {
-    words[y] = event.target.value;
-    this.setTimeTable(this.dataTime)
+  public chengeInput(event, words, i) {
+   console.log('ool', words[i], event.target.value)
+    words[i] = event.target.value;
+    console.log(words[i]);
+   this.setTimeTable(this.dataTime)
   }
 
   public addSpeech(words) {

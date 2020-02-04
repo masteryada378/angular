@@ -36,25 +36,18 @@ export class TimeComponent implements OnInit {
   }
 
   // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
-  public openModalWithComponent() {
+  public openModalWithComponent(item) {
     const initialState = {
       title: 'A few examples',
-      data: this.dataTime
+      robot: this.dbs.dataTime,
+      data: item,
     };
     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 // доделать модалку !!! 
 // TODO перенести в модал  
-  public chengeInput(event, words, y) {
-    this.dbs.chengeInput(event, words, y);
-  }
-  public addSpeech(words) {
-  }
-  public killSpeech(string) {
-  }
-  public onChanged(data: any) {
-  }
+  
 }
 
 
