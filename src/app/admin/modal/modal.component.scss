@@ -1,6 +1,11 @@
 .time-modal{
     &-button {
         border: 1px solid red;
+        
+        &-save {
+            position: absolute;
+            left: 1rem;
+        }
     }
     
     &-box {

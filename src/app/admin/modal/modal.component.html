@@ -7,15 +7,17 @@
 <div class="modal-body">
   <p></p>
   <div *ngFor="let word of data.words; let i = index">
-    <input type="text" class='time-input-string' name="text"
-      (change)='chengeInput($event, data.words, i)' 
-      (keyup.enter)='chengeInput($event, data.words, i)'
-      [value]="word">
-    <button class="icon-btn add-btn time-modal-button">
+    <!-- TODO подумать что передавать и как  -->
+    <input type="text" class='time-input-string' name="text" 
+      [value]="word"
+      (change)='chengeInput($event, i)' 
+      (keyup.enter)='chengeInput($event, i)'
+      >
+    <button class="icon-btn add-btn time-modal-button" (click)='killSpeech(i)'>
       <span class="btn-txt">Kill</span>
     </button>
   </div>
-  <a (click)='addSpeech(data.words)'>
+  <a (click)='addSpeech()'>
     <button class="icon-btn add-btn">
       <div class="add-icon"></div>
       <div class="btn-txt">Add</div>
@@ -23,5 +25,7 @@
   </a>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+  <button type="button" class="btn btn-default" (click)="closeWindow()">{{closeBtnName}}</button>
 </div>
+
+<!-- (keyup.enter)='chengeInput($event, data.words, i)' -->

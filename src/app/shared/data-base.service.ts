@@ -11,6 +11,7 @@ export class DataBaseService {
   constructor(private afs: AngularFirestore) {
     this.getTimeTable().subscribe((response: DocumentSnapshot < any > ) => {
       this.dataTime.next(response.data());
+      console.log(this.dataTime);
     });
   }
   
@@ -22,22 +23,13 @@ export class DataBaseService {
     return this.afs.collection('tables').doc('times').update(data);
   }
 
-  public chengeInput(event, words, i) {
-   console.log('ool', words[i], event.target.value)
-    words[i] = event.target.value;
-    console.log(words[i]);
-   this.setTimeTable(this.dataTime)
+  // TODO создать массив имен для перебора и перебирать здесь 
+  public getMyData(time: string) {
+    return this.afs.collection('tables').doc(time).get();
   }
 
-  public addSpeech(words) {
-    words.push('');
-  }
 
-  public killSpeech(string) {
-    console.log(string);
-  }
 
-  public onChanged(data: any) {
-    console.log(data);
-  }
+
+  
 }
