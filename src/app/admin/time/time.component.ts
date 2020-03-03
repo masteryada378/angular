@@ -41,9 +41,21 @@ export class TimeComponent implements OnInit {
     })
   }
 
-  public makeDataArray = ( ) => {
-
+  public deleteGroup = (data, i ) => {
+    console.log(data, i);
+    if(confirm('точно удалить')) {
+      data.splice(i, 1);
+    }
   }
+
+  public addString = ( item) => {
+      item.push({
+        word: "clear_me",
+        words: ["clear_me_to"]
+      })
+  }
+
+
   // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
   public openModalWithComponent(item) {
     const initialState = {

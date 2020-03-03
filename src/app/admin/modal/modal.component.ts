@@ -28,13 +28,25 @@ export class ModalComponent implements OnInit {
   }
 
   public killSpeech(i) {
-    this.data.words.splice(i, 1);
-
+    if(confirm('точно удалить')) {
+      this.data.words.splice(i, 1);
+    }
   }
+  // public deleteGroup( data ){
+  //  console.log(data);
+  //  confirm('точно удалить');
+  //  // delete data;
+  //   // data.splice(i,1)
+  // }
 
   public chengeInput(event, i) {
     this.data.words[i] = event.target.value;
     console.log(this.data.words[i]);
+  }
+  public chengeInputTitle(event, i) {
+
+    this.data.word = event.target.value;
+    console.log(this.data.word, ' == ',event.target.value);
   }
 
   public getData(time: string){

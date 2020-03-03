@@ -27,20 +27,43 @@
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
+        <button type="button" class="time-button-add"
+          (click)="addString(dataTime.future.indefinite)">
+            Add
+        </button>
         <div *ngFor="let item of dataTime.future.indefinite; let i = index">
           <button type="button" class="time-button" 
-          (click)="openModalWithComponent(item)">{{item.word}}</button>
+          (click)="openModalWithComponent(item)">
+              {{item.word}}
+              <button type="button" class="time-button-delete-me" 
+                (click)="deleteGroup(dataTime.future.indefinite, i)"> delME
+              </button>
+          </button>
         </div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
+        <button type="button" class="time-button-add"
+        (click)="addString(dataTime.future.continuous)">
+          Add
+      </button>
         <div *ngFor="let item of dataTime.future.continuous; let i = index">
           <button type="button" class="time-button" 
-          (click)="openModalWithComponent(item)">{{item.word}}</button>
+          (click)="openModalWithComponent(item)">
+            {{item.word}}
+
+            <button type="button" class="time-button-delete-me" 
+              (click)="deleteGroup(dataTime.future.continuous, i)"> delME
+            </button>
+          </button>
         </div>
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
+        <button type="button" class="time-button-add"
+        (click)="addString(dataTime.future.prefect)">
+          Add
+      </button>
         <!-- TODO -->
         <div *ngFor="let item of dataTime.future.prefect; let i = index">
           <button type="button" class="time-button" 
@@ -49,6 +72,10 @@
       </td>
       <td class="time-item">
         <div class="time-big">WILL</div>
+        <button type="button" class="time-button-add"
+        (click)="addString(dataTime.future.perfectContinuous)">
+          Add
+      </button>
         <div *ngFor="let item of dataTime.future.perfectContinuous; let i = index">
           <button type="button" class="time-button" 
           (click)="openModalWithComponent(item)">{{item.word}}</button>

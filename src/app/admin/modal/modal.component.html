@@ -5,10 +5,14 @@
   </button>
 </div>
 <div class="modal-body">
-  <p></p>
+  <input type="text" class='time-modal-input-title' name="text" 
+      [value]="data.word"
+      (change)='chengeInputTitle($event, i)' 
+      (keyup.enter)='chengeInputTitle($event, i)'
+      >
   <div *ngFor="let word of data.words; let i = index">
     <!-- TODO подумать что передавать и как  -->
-    <input type="text" class='time-input-string' name="text" 
+    <input type="text" class='time-modal-input' name="text" 
       [value]="word"
       (change)='chengeInput($event, i)' 
       (keyup.enter)='chengeInput($event, i)'
@@ -23,9 +27,13 @@
       <div class="btn-txt">Add</div>
     </button>
   </a>
+
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" (click)="closeWindow()">{{closeBtnName}}</button>
 </div>
-
+<!-- <button type="button" class="time-modal-button-delete"
+(click)="deleteGroup(data)">
+  delete
+</button> -->
 <!-- (keyup.enter)='chengeInput($event, data.words, i)' -->
