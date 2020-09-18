@@ -3,6 +3,9 @@ import { DataBaseService } from 'src/app/shared/data-base.service';
 import { DocumentSnapshot } from '@angular/fire/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/shared/login.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalComponent } from '../modal/modal.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-time',
@@ -10,32 +13,59 @@ import { LoginService } from 'src/app/shared/login.service';
   styleUrls: ['./time.component.scss']
 })
 export class TimeComponent implements OnInit {
+  public bsModalRef: BsModalRef;
+  public timeForm: FormGroup;
+  public dataArray: DocumentSnapshot<any>[];
+  public dataTime: DocumentSnapshot<any>;
+  public dataKeyNames: string[] = ["future_indef", "future_cont", "future_perfect", "future_per_cont",
+                                   "pre_indef", "pre_con", "pre-perf", "pre_per_cont" ,
+                                   "past_indef", "past-cont", "past-per", "past-perf-co"];
 
-  public  timeForm: FormGroup;
-  public dataTime: any;
-
+ // public dataBehavior: new BehaviorSubject<any>(null);  
   constructor(private dbs: DataBaseService,
               public fb: FormBuilder,
-              public loginService: LoginService) { }
+              public loginService: LoginService,
+              private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.dbs.getTimeTable().subscribe((response: DocumentSnapshot<any>) => {
-   //   console.log('First', response.data());
-      this.dataTime = response.data();
+//TODO подписаться на дата тайм и сохранить в переменную
+  this.dbs.dataTime.subscribe((response: DocumentSnapshot<any>) => {
+      this.dataTime = response;
     });
-    this.formBuilder();
+    
+    this.modalService.onHide.subscribe((resp) => {
+      
+      console.log(this.dataTime);
+      this.dbs.setTimeTable(this.dataTime); 
+       
+    })
   }
 
-  public formBuilder(): void {
-    this.timeForm = this.fb.group({
-      future: this.fb.group({
-        indefinite: [['tomorrow']],
-        continuous: [['when']],
-        perfect: [['by7']]
+  public deleteGroup = (data, i ) => {
+    console.log(data, i);
+    if(confirm('точно удалить')) {
+      data.splice(i, 1);
+    }
+  }
+
+  public addString = ( item) => {
+      item.push({
+        word: "clear_me",
+        words: ["clear_me_to"]
       })
-    });
-
-    console.log(this.timeForm);
   }
+
+
+  // TODO добавить метод который открывает модалку и повестить его на кнопку шоу в разметке
+  public openModalWithComponent(item) {
+    const initialState = {
+      title: 'A few examples',
+    //  robot: this.dbs.dataTime,
+      data: item,
+    };
+    this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
 
 }

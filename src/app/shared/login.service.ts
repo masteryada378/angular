@@ -16,7 +16,7 @@ export class LoginService {
 
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private toastrService: ToastrService) {
     this.afAuth.auth.onAuthStateChanged((user) => {
-          console.log('user is logged', user);
+        //  console.log('user is logged', user);
           if (user) {
               this.user = user;
               this.getUserByEmail(user.email);
@@ -56,7 +56,7 @@ export class LoginService {
     this.afs.collection('users', ref => ref.where('email', '==', email))
     .get()
     .subscribe((query) => {
-      console.log(query);
+   //   console.log(query);
 
       query.forEach((doc: DocumentSnapshot<User>) => {
 
@@ -67,7 +67,7 @@ export class LoginService {
   }
 
   public updateUser(data: User) {
-    console.log('hello update user', data);
+  //  console.log('hello update user', data);
     return this.afs.collection('users', ref => ref.where('email', '==', data.email)).doc(this.user.uid).update(data);
 
   }

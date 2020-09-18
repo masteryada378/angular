@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <input type="text" class='time-modal-input-title' name="text" 
+      [value]="data.word"
+      (change)='chengeInputTitle($event, i)' 
+      (keyup.enter)='chengeInputTitle($event, i)'
+      >
+  <div *ngFor="let word of data.words; let i = index">
+    <!-- TODO подумать что передавать и как  -->
+    <input type="text" class='time-modal-input' name="text" 
+      [value]="word"
+      (change)='chengeInput($event, i)' 
+      (keyup.enter)='chengeInput($event, i)'
+      >
+    <button class="icon-btn add-btn time-modal-button" (click)='killSpeech(i)'>
+      <span class="btn-txt">Kill</span>
+    </button>
+  </div>
+  <a (click)='addSpeech()'>
+    <button class="icon-btn add-btn">
+      <div class="add-icon"></div>
+      <div class="btn-txt">Add</div>
+    </button>
+  </a>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="closeWindow()">{{closeBtnName}}</button>
+</div>
+<!-- <button type="button" class="time-modal-button-delete"
+(click)="deleteGroup(data)">
+  delete
+</button> -->
+<!-- (keyup.enter)='chengeInput($event, data.words, i)' -->

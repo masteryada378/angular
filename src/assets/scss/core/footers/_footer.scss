@@ -8,6 +8,13 @@
 .footer {
     background: $footer-bg;
     padding: $footer-padding-y $footer-padding-x;
+    position: absolute;
+    bottom: 0px;
+    width: 98%;
+    padding: 1em;
+    max-height: 110px;
+    background: transparent;
+    color: blanchedalmond;
 
     .col-footer {
         .heading {

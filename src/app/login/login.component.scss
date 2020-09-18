@@ -7,7 +7,6 @@
 
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  background: #ededed;
 }
 
 input, button {
@@ -44,8 +43,10 @@ $diffRatio: ($contW - $imgW) / $contW;
   position: relative;
   width: $contW;
   height: 550px;
-  margin: 0 auto 100px;
-  background: #fff;
+  margin: 1em auto 100px;
+  background: #dbdbdd;
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 .form {
@@ -64,7 +65,7 @@ $diffRatio: ($contW - $imgW) / $contW;
   width: $contW;
   height: 100%;
   padding-left: $imgW;
-  background: #fff;
+  background: #dbdbdd;
   transition: transform $switchAT ease-in-out;
 
   @include signUpActive {
@@ -225,7 +226,7 @@ label {
 
   span {
     font-size: 12px;
-    color: #cfcfcf;
+    color: #271b1b;
     text-transform: uppercase;
   }
 }
@@ -244,7 +245,7 @@ input {
   margin-top: 15px;
   text-align: center;
   font-size: 12px;
-  color: #cfcfcf;
+  color: #271b1b;
 }
 
 .submit {
